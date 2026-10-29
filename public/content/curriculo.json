@@ -1,0 +1,314 @@
+{
+  "source": "Capturas do LinkedIn fornecidas pelo usuário em Arquivo.zip; conteúdo profissional visível.",
+  "profile": {
+    "name": "Alexandre Junior",
+    "headline": "Game Developer at Jungle Gaming",
+    "location": "São José do Rio Preto, São Paulo, Brasil",
+    "aboutOriginal": "Working with mobile and web development since the end of 2019, using tools such as React and React Native. I'm always looking to learn more every day, improving my skills and improving the quality of my work!",
+    "linkedin": "https://www.linkedin.com/in/alexandre-junior-5a1070370/",
+    "github": "https://github.com/ItsJuniorDias",
+    "medium": "https://medium.com/@AlexandreJr"
+  },
+  "experiences": [
+    {
+      "id": "jungle",
+      "company": "Jungle Gaming",
+      "role": "Game Developer",
+      "employment": "Tempo integral",
+      "start": "2026-10",
+      "end": null,
+      "location": "Dubai, Emirados Árabes Unidos",
+      "workMode": "Remoto",
+      "responsibilities": [
+        "Desenvolvimento de jogos de cassino de ponta a ponta, incluindo slot, crash e roleta.",
+        "Frontends WebGL de alto desempenho com React e PixiJS 8; servidores de jogos em NestJS; integração com Remote Game Servers de terceiros.",
+        "Reels, cascades, celebrações de vitória e layouts responsivos para celulares e desktops.",
+        "Fluxos de carteira, recuperação de rodadas e simulação de RTP.",
+        "Game feel: animação, timing, som e detalhes da experiência de jogo.",
+        "Correção: valores monetários em unidades inteiras mínimas, testes determinísticos e aleatoriedade delimitada ao RNG.",
+        "Performance: orçamento de texturas, assets comprimidos em KTX2, AVIF e WebP e foco em 60 fps em aparelhos intermediários.",
+        "Ferramentas: workspaces Bun, Docker, testes visuais e end-to-end com Playwright e monorepos preparados para CI."
+      ],
+      "technologies": [
+        "TypeScript",
+        "React",
+        "PixiJS 8",
+        "NestJS",
+        "Three.js",
+        "Bun",
+        "Docker",
+        "Playwright",
+        "KTX2",
+        "AVIF",
+        "WebP"
+      ],
+      "sourceFiles": [
+        "2608ac47-2124-4947-bfa0-d5cdcff8c22d.jpeg",
+        "c630fb99-2b96-46a0-9837-11e6d6b633ad.jpeg"
+      ],
+      "sourceLimit": "A última linha da lista de tecnologias está cortada na captura; foram incluídos apenas itens legíveis no corpo ou nas competências visíveis."
+    },
+    {
+      "id": "t10",
+      "company": "T10",
+      "client": "Tribanco",
+      "role": "React/React Native Developer",
+      "employment": "Tempo integral",
+      "start": "2025-10",
+      "end": "2026-06",
+      "location": "Uberlândia, Minas Gerais, Brasil",
+      "workMode": "Remoto",
+      "responsibilities": [
+        "Atuação no squad antifraude do Tribanco, via T10.",
+        "Desenho, desenvolvimento e otimização de soluções de detecção e prevenção a fraudes, com foco na segurança e confiabilidade das transações digitais."
+      ],
+      "technologies": [
+        "React Native",
+        "React"
+      ],
+      "sourceFiles": [
+        "7352db60-f647-43b0-8e8e-e000862f06d8.jpeg"
+      ]
+    },
+    {
+      "id": "teddy",
+      "company": "Teddy Open Finance",
+      "role": "Senior React Native Developer",
+      "employment": "Tempo integral",
+      "start": "2024-11",
+      "end": "2025-05",
+      "location": "São Bernardo do Campo, São Paulo, Brasil",
+      "workMode": "Remoto",
+      "responsibilities": [
+        "Criação de novas funcionalidades no aplicativo Teddy 360° com React Native e Expo SDK 52."
+      ],
+      "technologies": [
+        "React Native",
+        "React",
+        "Expo SDK 52"
+      ],
+      "projectLink": "https://play.google.com/store/apps/details?id=com.teddydigital.teddy360&hl=pt_BR",
+      "sourceFiles": [
+        "7352db60-f647-43b0-8e8e-e000862f06d8.jpeg"
+      ]
+    },
+    {
+      "id": "datum",
+      "company": "Datum",
+      "client": "AQBank Digital",
+      "role": "Mid-Level React Native/Kotlin Developer",
+      "employment": "Tempo integral",
+      "start": "2024-06",
+      "end": "2024-09",
+      "location": "São Paulo, Brasil",
+      "workMode": "Presencial",
+      "responsibilities": [
+        "Criação do aplicativo AQPago TapPay em Kotlin, utilizando o SDK da Zoop para meios de pagamento.",
+        "Desenvolvimento de novas telas e funcionalidades do AQPagoPay com React Native."
+      ],
+      "technologies": [
+        "React Native",
+        "Kotlin",
+        "Zoop SDK"
+      ],
+      "sourceFiles": [
+        "e83e51f6-0c2c-4c95-af46-60127cdef187.jpeg"
+      ]
+    },
+    {
+      "id": "rethink",
+      "company": "Rethink",
+      "client": "Smiles",
+      "role": "Mid-Level React Native Developer",
+      "employment": "Tempo integral",
+      "start": "2022-04",
+      "end": "2024-06",
+      "location": "Belo Horizonte, Minas Gerais, Brasil",
+      "workMode": "Remoto",
+      "responsibilities": [
+        "Desenvolvimento do novo aplicativo Smiles.",
+        "Arquitetura com Nx e controle de estado global com Context e Redux.",
+        "Testes unitários com Jest e React Native Testing Library.",
+        "Criação de funcionalidades, telas e componentes do aplicativo."
+      ],
+      "technologies": [
+        "React Native",
+        "Node.js",
+        "Nx",
+        "Context",
+        "Redux",
+        "Jest",
+        "React Native Testing Library"
+      ],
+      "projectLink": "https://apps.apple.com/br/app/smiles/id1547248485",
+      "sourceFiles": [
+        "a919c2a9-ca14-432a-bce5-e2a3762898cf.jpeg",
+        "e83e51f6-0c2c-4c95-af46-60127cdef187.jpeg"
+      ]
+    },
+    {
+      "id": "inmetrics",
+      "company": "Inmetrics",
+      "client": "Neon / MEI Fácil",
+      "role": "Mid-Level React Native Developer",
+      "employment": "Tempo integral",
+      "start": "2021-08",
+      "end": "2022-04",
+      "location": "São Paulo, Brasil",
+      "workMode": "Remoto",
+      "responsibilities": [
+        "Alocação no projeto MEI Fácil do banco Neon, trabalhando com React Native."
+      ],
+      "technologies": [
+        "React Native"
+      ],
+      "historicalContextFromProfile": "A descrição fornecida informa que o aplicativo tinha cerca de mais de 5 milhões de instalações no Google Play. Esse dado contextualiza o produto e não é atribuído como resultado individual de Alexandre.",
+      "sourceFiles": [
+        "a919c2a9-ca14-432a-bce5-e2a3762898cf.jpeg"
+      ],
+      "sourceLimit": "O restante da descrição fica abaixo da área visível da captura."
+    },
+    {
+      "id": "dxco",
+      "company": "DX.CO",
+      "client": "Lojas Lebes",
+      "role": "React Native Developer",
+      "employment": "Tempo integral",
+      "start": "2021-01",
+      "end": "2021-08",
+      "location": "Porto Alegre, Rio Grande do Sul, Brasil",
+      "workMode": "Remoto",
+      "responsibilities": [
+        "Publicação da versão 2.0 do aplicativo Lojas Lebes no Google Play.",
+        "Trabalho com React Native e Xcode para o ambiente iOS.",
+        "Criação de telas com React Native e React.",
+        "Novas funcionalidades, rotas e serviços de backend com Node.js.",
+        "Estado global com Redux, Redux Saga e Hooks."
+      ],
+      "technologies": [
+        "React Native",
+        "React",
+        "Node.js",
+        "Xcode",
+        "Redux",
+        "Redux Saga",
+        "Hooks"
+      ],
+      "historicalContextFromProfile": "A descrição fornecida menciona aproximadamente mais de 80 mil usuários do aplicativo. Esse número é preservado como contexto do perfil, sem atribuir a Alexandre uma aquisição de usuários não demonstrada.",
+      "projectLink": "https://play.google.com/store/apps/details?id=br.com.lebes.app&hl=pt_BR&gl=US",
+      "sourceFiles": [
+        "df4a4197-490c-4e13-8141-29ff2e503354.jpeg"
+      ]
+    },
+    {
+      "id": "bizstore",
+      "company": "Biz Store",
+      "role": "React Native Developer",
+      "employment": "Tempo integral",
+      "start": "2020-01",
+      "end": "2020-10",
+      "location": "São José do Rio Preto, São Paulo, Brasil",
+      "workMode": "Remoto",
+      "responsibilities": [
+        "Desenvolvimento com React Native, Node.js e React.",
+        "Criação de telas mobile e web com Styled Components.",
+        "Integrações com serviços de API via Axios; controle de estado com Redux e Redux Saga para chamadas assíncronas.",
+        "Navegação web com React Router DOM e mobile com React Navigation.",
+        "Deploy de aplicações Node.js e React no Heroku."
+      ],
+      "technologies": [
+        "React Native",
+        "React",
+        "Node.js",
+        "Styled Components",
+        "Axios",
+        "Redux",
+        "Redux Saga",
+        "React Router DOM",
+        "React Navigation",
+        "Heroku"
+      ],
+      "projectLink": "https://play.google.com/store/apps/details?id=com.tshopapp.tshop&hl=pt&gl=US",
+      "sourceFiles": [
+        "c91de372-75d7-46c0-866e-c13a7db363ea.jpeg"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Fatec Rio Preto",
+      "program": "Análise e Desenvolvimento de Sistemas",
+      "start": "2017-01",
+      "end": "2020-12",
+      "sourceFile": "4e3f332e-2be8-427c-a78f-b5a01024fb03.jpeg"
+    },
+    {
+      "institution": "Rocketseat",
+      "program": "Full Stack Developer",
+      "start": "2019-01",
+      "end": "2021-12",
+      "visibleSkills": [
+        "React Native",
+        "React"
+      ],
+      "sourceFile": "4e3f332e-2be8-427c-a78f-b5a01024fb03.jpeg"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Cambly Certificate",
+      "issuer": "Cambly Inc.",
+      "issued": "2025-11",
+      "sourceFile": "c6e94947-532d-4ca0-9fc4-1a38d16a601a.jpeg",
+      "sourceLimit": "Nível, carga horária, código e URL da credencial não estão legíveis na captura; não se infere fluência."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Spotify App",
+      "category": "Projeto apresentado no LinkedIn",
+      "visibleContent": [
+        "Conjunto de telas de um aplicativo de música",
+        "Entrada, login, cadastro, descoberta, biblioteca, perfil e reprodução"
+      ],
+      "relationship": "Projeto de portfólio; não indica vínculo de emprego com Spotify.",
+      "sourceFile": "c6e94947-532d-4ca0-9fc4-1a38d16a601a.jpeg",
+      "sourceLimit": "A descrição e o link do projeto ficam abaixo da captura."
+    },
+    {
+      "name": "Jogo autoral desenvolvido solo",
+      "category": "Publicação em destaque",
+      "visibleContent": [
+        "Publicação relata o lançamento do primeiro jogo desenvolvido individualmente após meses de noites e fins de semana",
+        "Imagem mostra um jogo com cartas, unidades e controle de turno"
+      ],
+      "sourceFile": "c2477be7-be14-4f0b-90d9-c814a6fa1d9a.jpeg",
+      "sourceLimit": "Nome e link do jogo não estão visíveis. Não se afirma que ele seja o segundo item da seção Projects."
+    }
+  ],
+  "recommendation": {
+    "author": "Tarcisio Bezerra",
+    "headlineVisible": "Engenheiro de Software Sênior | Java Full Stack Sênior | Gen AI | AWS and Azure | Spring Boot | Microsserviços | Kafka",
+    "date": "2025-10-14",
+    "relationship": "Trabalhou com Alexandre na mesma equipe",
+    "fullTextFile": "indicacao-tarcisio.txt",
+    "sourceFile": "00fc3051-c073-424e-b070-2d7ca7674e54.jpeg",
+    "dedicatedScene": true
+  },
+  "coverage": {
+    "identifiedExperiences": 8,
+    "sourceExperienceCounter": 9,
+    "sourceProjectCounter": 2,
+    "userDirection": "Seguir com o material disponível, sem aguardar complementos.",
+    "notIdentifiableInScreenshots": [
+      "Nona experiência",
+      "Segundo item da seção Projects",
+      "Partes cortadas de descrições e competências"
+    ],
+    "notCurriculumContent": [
+      "Sugestões da interface do LinkedIn",
+      "Métricas sociais",
+      "Controles e avisos privados da conta"
+    ]
+  }
+}

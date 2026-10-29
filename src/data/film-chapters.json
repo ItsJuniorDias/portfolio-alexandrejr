@@ -1,0 +1,211 @@
+[
+  {
+    "id": "prologo",
+    "start": 0,
+    "end": 4,
+    "section": "sobre",
+    "period": "PORTFÓLIO • ALEXANDRE JUNIOR",
+    "title": "Código em cena",
+    "description": "Uma trajetória em interfaces, sistemas e jogos.",
+    "number": "PORTFÓLIO",
+    "action": "ROLE PARA ABRIR"
+  },
+  {
+    "id": "bizstore",
+    "start": 4,
+    "end": 7,
+    "section": "bizstore",
+    "period": "2020 • WEB E MOBILE",
+    "title": "Biz Store",
+    "description": "Desenvolvimento com React, React Native e Node.js.",
+    "number": "01 / 08",
+    "action": "ABRIR EXPERIÊNCIA"
+  },
+  {
+    "id": "dxco",
+    "start": 7,
+    "end": 10,
+    "section": "dxco",
+    "period": "2021 • EXPERIÊNCIA NO VAREJO",
+    "title": "DX.CO → Lojas Lebes",
+    "description": "Desenvolvimento da segunda versão do aplicativo.",
+    "number": "02 / 08",
+    "action": "ABRIR EXPERIÊNCIA"
+  },
+  {
+    "id": "inmetrics",
+    "start": 10,
+    "end": 16,
+    "section": "inmetrics",
+    "period": "2021–2022 • PRODUTOS FINANCEIROS",
+    "title": "Inmetrics → MEI Fácil",
+    "description": "Desenvolvimento mobile com React Native.",
+    "number": "03 / 08",
+    "action": "ABRIR EXPERIÊNCIA"
+  },
+  {
+    "id": "rethink",
+    "start": 16,
+    "end": 23,
+    "section": "rethink",
+    "period": "2022–2024 • EXPERIÊNCIAS DE VIAGEM",
+    "title": "Rethink → Smiles",
+    "description": "Novas funcionalidades, arquitetura e testes no aplicativo.",
+    "number": "04 / 08",
+    "action": "ABRIR EXPERIÊNCIA"
+  },
+  {
+    "id": "datum",
+    "start": 23,
+    "end": 27,
+    "section": "datum",
+    "period": "2024 • PAGAMENTOS",
+    "title": "Datum → AQBank / AQPago",
+    "description": "Interfaces mobile e integração de pagamentos com Kotlin.",
+    "number": "05 / 08",
+    "action": "ABRIR EXPERIÊNCIA"
+  },
+  {
+    "id": "formacao-intro",
+    "start": 27,
+    "end": 33,
+    "section": "formacao",
+    "period": "ATO II",
+    "title": "Formação e projetos",
+    "description": "O aprendizado vira construção. A construção ganha forma.",
+    "number": "ATELIÊ",
+    "action": "ROLE PARA EXPLORAR"
+  },
+  {
+    "id": "fatec",
+    "start": 33,
+    "end": 38,
+    "section": "formacao",
+    "period": "2017–2020 • FORMAÇÃO",
+    "title": "Fatec Rio Preto",
+    "description": "Análise e Desenvolvimento de Sistemas.",
+    "number": "01 / 02",
+    "action": "VER FORMAÇÃO"
+  },
+  {
+    "id": "rocketseat",
+    "start": 38,
+    "end": 42,
+    "section": "formacao",
+    "period": "2019–2021 • FORMAÇÃO",
+    "title": "Rocketseat",
+    "description": "Full Stack Developer • React e React Native.",
+    "number": "02 / 02",
+    "action": "VER FORMAÇÃO"
+  },
+  {
+    "id": "cambly",
+    "start": 42,
+    "end": 45,
+    "section": "formacao",
+    "period": "NOVEMBRO DE 2025 • CERTIFICAÇÃO",
+    "title": "Cambly Certificate",
+    "description": "Certificado emitido pela Cambly Inc.",
+    "number": "FORMAÇÃO",
+    "action": "VER CERTIFICAÇÃO"
+  },
+  {
+    "id": "spotify",
+    "start": 45,
+    "end": 51,
+    "section": "spotify",
+    "period": "PROJETO DE PORTFÓLIO",
+    "title": "Spotify App",
+    "description": "Projeto de aplicativo de música apresentado no LinkedIn.",
+    "number": "PROJETOS",
+    "action": "EXPLORAR PROJETO"
+  },
+  {
+    "id": "solo-game",
+    "start": 51,
+    "end": 57,
+    "section": "jogo",
+    "period": "PROJETO AUTORAL",
+    "title": "Um jogo desenvolvido solo",
+    "description": "Primeiro jogo criado e lançado individualmente, em destaque no perfil.",
+    "number": "PROJETOS",
+    "action": "EXPLORAR PROJETO"
+  },
+  {
+    "id": "sistemas-intro",
+    "start": 57,
+    "end": 63,
+    "section": "trajetoria",
+    "period": "ATO III",
+    "title": "Sistemas que viram mundos",
+    "description": "Conexões, precisão e experiências que ganham vida.",
+    "number": "EM CENA",
+    "action": "ROLE PARA EXPLORAR"
+  },
+  {
+    "id": "teddy",
+    "start": 63,
+    "end": 70,
+    "section": "teddy",
+    "period": "2024–2025 • OPEN FINANCE",
+    "title": "Teddy Open Finance",
+    "description": "Desenvolvimento do Teddy 360° com React Native e Expo.",
+    "number": "06 / 08",
+    "action": "ABRIR EXPERIÊNCIA"
+  },
+  {
+    "id": "t10",
+    "start": 70,
+    "end": 77,
+    "section": "t10",
+    "period": "2025–2026 • ANTIFRAUDE",
+    "title": "T10 → Tribanco",
+    "description": "Detecção e prevenção a fraudes com React e React Native.",
+    "number": "07 / 08",
+    "action": "ABRIR EXPERIÊNCIA"
+  },
+  {
+    "id": "jungle",
+    "start": 77,
+    "end": 86,
+    "section": "jungle",
+    "period": "DESDE OUTUBRO DE 2026 • GAME DEVELOPMENT",
+    "title": "Jungle Gaming",
+    "description": "Jogos de ponta a ponta com React, PixiJS 8 e NestJS.",
+    "number": "08 / 08",
+    "action": "ABRIR EXPERIÊNCIA"
+  },
+  {
+    "id": "tarcisio-intro",
+    "start": 86,
+    "end": 94,
+    "section": "tarcisio",
+    "period": "ATO IV • RECONHECIMENTO",
+    "title": "Quem trabalhou comigo",
+    "description": "Uma recomendação de Tarcisio Bezerra.",
+    "number": "INDICAÇÃO",
+    "action": "LER INDICAÇÃO COMPLETA"
+  },
+  {
+    "id": "tarcisio",
+    "start": 94,
+    "end": 117,
+    "section": "tarcisio",
+    "period": "RECOMENDAÇÃO • 14 DE OUTUBRO DE 2025",
+    "title": "Tarcisio Bezerra",
+    "description": "Engenheiro de Software Sênior • Trabalhou com Alexandre na mesma equipe.",
+    "number": "INDICAÇÃO",
+    "action": "LER INDICAÇÃO COMPLETA"
+  },
+  {
+    "id": "epilogo",
+    "start": 117,
+    "end": 120,
+    "section": "sobre",
+    "period": "PORTFÓLIO • ALEXANDRE JUNIOR",
+    "title": "Código em cena",
+    "description": "Uma trajetória em interfaces, sistemas e jogos.",
+    "number": "PORTFÓLIO",
+    "action": "ROLE PARA ABRIR"
+  }
+]

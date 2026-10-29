@@ -1,0 +1,556 @@
+.film-header {
+  height: 70px;
+  position: fixed;
+  z-index: 20;
+  inset: 0 0 auto;
+  padding: 0 4%;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: #eee2c8;
+}
+.film-header .brand > span {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 27px;
+  letter-spacing: 0.2px;
+}
+.film-header .brand small {
+  letter-spacing: 3px;
+  font-size: 14px;
+}
+.film-header nav {
+  display: flex;
+  gap: 32px;
+  margin-left: auto;
+  align-items: center;
+}
+.film-header nav a,
+.film-header nav button {
+  font:
+    500 14px "Cormorant Garamond",
+    Georgia,
+    serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+.film-program {
+  font-size: 24px;
+  padding: 8px;
+}
+.film-viewport {
+  position: fixed;
+  inset: 70px 0 0;
+  overflow: hidden;
+  background: #eee2c8;
+}
+.pixi-film {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  touch-action: pan-y;
+}
+.pixi-film.can-pan {
+  cursor: grab;
+  touch-action: none;
+}
+.pixi-film.is-dragging {
+  cursor: grabbing;
+}
+.pixi-film canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.film-source {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.film-poster {
+  position: absolute;
+  inset: 0;
+  background: url("/assets/film/stage-poster-no-text.png") center bottom / contain no-repeat;
+}
+.film-ready .film-poster {
+  visibility: hidden;
+}
+.film-toolbar {
+  position: absolute;
+  z-index: 6;
+  bottom: 13px;
+  left: 14%;
+  right: 14%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  color: #f3e2bc;
+  text-shadow: 0 1px 3px #152724;
+}
+.film-toolbar button {
+  font-size: 14px;
+  padding: 7px 4px;
+}
+.film-navigation,
+.camera-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.film-navigation > span {
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.film-navigation button {
+  font-size: 18px;
+  padding: 3px 6px;
+}
+.camera-controls > button:first-child,
+.camera-controls > button:nth-child(3) {
+  font-size: 17px;
+  padding: 3px 7px;
+}
+.camera-controls .camera-toggle {
+  border-left: 1px solid #cbb68a55;
+  padding-left: 12px;
+  margin-left: 3px;
+}
+.camera-controls .film-sound {
+  border-left: 1px solid #cbb68a55;
+  padding-left: 12px;
+  margin-left: 3px;
+}
+.film-scroll-hint {
+  position: absolute;
+  z-index: 5;
+  bottom: 15%;
+  left: 50%;
+  translate: -50% 0;
+  padding: 13px 20px;
+  background: #f0e2c8ed;
+  color: #473728;
+  box-shadow: 0 3px 0 #98764a;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  white-space: nowrap;
+}
+.film-scroll-hint span {
+  font-size: 19px;
+}
+.pan-hint {
+  position: absolute;
+  z-index: 5;
+  top: 15px;
+  left: 50%;
+  translate: -50% 0;
+  padding: 8px 12px;
+  color: #eee2c8;
+  background: #253b3dcc;
+  font-size: 14px;
+}
+.film-loading,
+.film-error {
+  position: absolute;
+  z-index: 8;
+  top: 48%;
+  left: 50%;
+  translate: -50% 0;
+  padding: 14px 20px;
+  background: #eee2c8;
+  font-size: 14px;
+}
+.film-error {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.mobile-film-caption {
+  display: none;
+}
+@media (max-width: 700px) {
+  .film-header {
+    height: 96px;
+    padding: 12px 6% 10px;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    align-content: center;
+  }
+  .film-header .brand > span {
+    font-size: 24px;
+  }
+  .film-header .brand small {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+  .film-header nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0;
+    gap: 15px;
+  }
+  .film-header nav a,
+  .film-header nav button {
+    font-size: 14px;
+    padding: 2px 0;
+  }
+  .film-program {
+    margin-left: auto;
+    padding: 0;
+  }
+  .film-viewport {
+    top: 96px;
+  }
+  .mobile-film-caption {
+    display: block;
+    position: absolute;
+    top: 7%;
+    left: 9%;
+    right: 9%;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .mobile-film-caption > .eyebrow {
+    font-size: 14px;
+    letter-spacing: 1.6px;
+    color: #887044;
+  }
+  .mobile-film-caption h1 {
+    margin-top: 15px;
+    font:
+      500 39px / 1.04 "Cormorant Garamond",
+      Georgia,
+      serif;
+    max-width: 360px;
+  }
+  .mobile-film-caption p {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 320px;
+    color: #6e624b;
+  }
+  .mobile-film-caption .inline-link {
+    margin-top: 21px;
+    pointer-events: auto;
+    font-size: 14px;
+  }
+  .film-toolbar {
+    bottom: 5px;
+    left: 8%;
+    right: 8%;
+    gap: 5px;
+  }
+  .film-toolbar button {
+    font-size: 14px;
+    padding: 5px 2px;
+  }
+  .film-navigation {
+    gap: 2px;
+  }
+  .film-navigation > span {
+    font-size: 14px;
+  }
+  .film-navigation button {
+    font-size: 14px;
+  }
+  .camera-controls {
+    gap: 3px;
+  }
+  .camera-controls > button:first-child,
+  .camera-controls > button:nth-child(3) {
+    font-size: 14px;
+    padding: 3px 4px;
+  }
+  .camera-controls .camera-toggle,
+  .camera-controls .film-sound {
+    display: none;
+  }
+  .film-scroll-hint {
+    bottom: calc(100vw * 0.15);
+    font-size: 14px;
+    padding: 9px 12px;
+    gap: 13px;
+  }
+  .film-scroll-hint span {
+    font-size: 14px;
+  }
+  .pan-hint {
+    top: 58%;
+    font-size: 14px;
+  }
+}
+@media (max-width: 700px) and (max-height: 680px) {
+  .mobile-film-caption {
+    top: 4%;
+  }
+  .mobile-film-caption h1 {
+    font-size: 29px;
+    margin-top: 9px;
+  }
+  .mobile-film-caption p {
+    margin-top: 9px;
+    font-size: 14px;
+  }
+  .mobile-film-caption .inline-link {
+    margin-top: 12px;
+  }
+}
+
+/* Keep controls readable and outside the small cinema frame on narrow screens. */
+@media (max-width: 700px) {
+  .film-toolbar {
+    bottom: calc(100vw * 0.5125 + 18px);
+    left: 7%;
+    right: 7%;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    color: #293c3a;
+    text-shadow: none;
+  }
+  .film-navigation {
+    margin-left: auto;
+  }
+  .camera-controls {
+    width: 100%;
+    justify-content: center;
+    gap: 13px;
+  }
+  .camera-controls button {
+    min-width: 30px;
+    min-height: 30px;
+  }
+  .film-header {
+    height: 112px;
+  }
+  .film-viewport {
+    top: 112px;
+  }
+}
+
+:root {
+  --film-header-height: 70px;
+  --film-immersion: 0;
+}
+.film-header {
+  transform: translateY(calc(var(--film-immersion) * -100%));
+  will-change: transform;
+}
+.film-header:has(:focus-visible) {
+  transform: translateY(0);
+}
+.film-viewport {
+  top: calc(var(--film-header-height) * (1 - var(--film-immersion)));
+}
+.scroll-track {
+  min-height: 0;
+}
+.coded-card-anchor {
+  position: absolute;
+  z-index: 5;
+  perspective: 900px;
+  pointer-events: none;
+}
+.coded-card {
+  position: relative;
+  background: #e9dbbd;
+  border: 1px solid #b99b63;
+  color: #284b49;
+  box-shadow: 1px 3px 7px #40291033;
+  padding: calc(10px * var(--card-scale)) calc(19px * var(--card-scale));
+  pointer-events: auto;
+}
+.coded-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 14px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.coded-card-top > span:last-child {
+  flex-shrink: 0;
+  font-family: Georgia, serif;
+}
+.coded-card h2 {
+  font:
+    400 calc(25px * var(--card-scale)) / 1.05 Georgia,
+    serif;
+  margin-bottom: 6px;
+}
+.coded-card > p {
+  font-size: max(14px, calc(13px * var(--card-scale)));
+  line-height: 1.35;
+}
+.coded-card > button {
+  display: block;
+  padding: 0;
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  font-size: 14px;
+  color: #6f2833;
+}
+.coded-pin {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ad8c4f;
+  position: absolute;
+  top: 7px;
+}
+.coded-pin.left {
+  left: 7px;
+}
+.coded-pin.right {
+  right: 7px;
+}
+.coded-letter {
+  padding: calc(24px * var(--card-scale)) calc(43px * var(--card-scale));
+}
+.coded-letter .coded-card-top {
+  color: #742d35;
+  border-bottom: 1px solid #bea36c80;
+  padding-bottom: calc(14px * var(--card-scale));
+  margin-bottom: calc(24px * var(--card-scale));
+}
+.coded-letter blockquote {
+  margin: 0 0 calc(25px * var(--card-scale));
+  font:
+    400 calc(30px * var(--card-scale)) / 1.2 Georgia,
+    serif;
+  min-height: calc(135px * var(--card-scale));
+}
+.coded-letter-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding-top: calc(14px * var(--card-scale));
+  border-top: 1px solid #bea36c80;
+}
+.coded-letter-footer strong {
+  font:
+    400 calc(21px * var(--card-scale)) Georgia,
+    serif;
+}
+.coded-letter-footer p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 3px;
+}
+.coded-letter-footer button {
+  flex-shrink: 0;
+  padding: calc(12px * var(--card-scale)) calc(24px * var(--card-scale));
+  font-size: 14px;
+  border: 1px solid #783743;
+  color: #783743;
+  text-transform: uppercase;
+}
+.coded-card button:hover {
+  color: #2c4c48;
+  text-decoration: underline;
+}
+@media (max-width: 700px) {
+  :root {
+    --film-header-height: 112px;
+  }
+  .film-viewport {
+    top: calc(var(--film-header-height) * (1 - var(--film-immersion)));
+  }
+  .coded-card {
+    padding: 18px 20px;
+  }
+  .coded-card-top {
+    font-size: 14px;
+    letter-spacing: 0.6px;
+  }
+  .coded-card h2 {
+    font-size: 27px;
+    margin-top: 10px;
+  }
+  .coded-card > p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .coded-card > button {
+    margin-top: 13px;
+    font-size: 14px;
+  }
+  .coded-letter {
+    padding: 20px;
+  }
+  .coded-letter .coded-card-top {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+  }
+  .coded-letter blockquote {
+    font-size: 22px;
+    line-height: 1.25;
+    min-height: 0;
+    margin-bottom: 18px;
+  }
+  .coded-letter-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .coded-letter-footer strong {
+    font-size: 22px;
+  }
+  .coded-letter-footer p,
+  .coded-letter-footer button {
+    font-size: 14px;
+  }
+  .coded-letter-footer button {
+    padding: 10px 12px;
+  }
+  .film-viewport:not([data-scene="prologo"]):not([data-scene="epilogo"]) .mobile-film-caption {
+    display: none;
+  }
+}
+
+.stage-title {
+  position: absolute;
+  z-index: 4;
+  margin: 0;
+  display: block;
+  white-space: nowrap;
+  fill: #332c1b;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  text-shadow: 0 1px 0 #e4cba266;
+}
+
+.film-travel-status {
+  position: absolute;
+  z-index: 9;
+  bottom: 62px;
+  left: 50%;
+  translate: -50% 0;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 90%;
+  padding: 10px 16px;
+  background: #eee2c8f2;
+  border: 1px solid #b99b63;
+  color: #344d47;
+  font-size: 14px;
+}
+
+.film-travel-status span {
+  white-space: nowrap;
+  color: #742d35;
+}

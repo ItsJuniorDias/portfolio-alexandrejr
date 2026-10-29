@@ -1,0 +1,613 @@
+{
+  "version": 1,
+  "generator": "scripts/build-assets.mjs",
+  "models": [
+    {
+      "id": "phone",
+      "url": "/assets/models/phone.glb",
+      "bytes": 26368,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -0.824999988079071,
+          -2.3841857821338408e-8,
+          -0.054999999701976776
+        ],
+        "max": [
+          0.824999988079071,
+          3.200000023841858,
+          0.3099999997764826
+        ]
+      },
+      "nodes": [
+        "phone",
+        "body",
+        "body-corrugation",
+        "body-face",
+        "screen",
+        "screen-corrugation",
+        "screen-face",
+        "speaker",
+        "home",
+        "avatar",
+        "heading",
+        "subtitle",
+        "interface-0",
+        "interface-0-corrugation",
+        "interface-0-face",
+        "line",
+        "interface-1",
+        "interface-1-corrugation",
+        "interface-1-face",
+        "line",
+        "interface-2",
+        "interface-2-corrugation",
+        "interface-2-face",
+        "line"
+      ]
+    },
+    {
+      "id": "storefront",
+      "url": "/assets/models/storefront.glb",
+      "bytes": 16164,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -1.4500000476837158,
+          0,
+          -0.054999999701976776
+        ],
+        "max": [
+          1.4500000476837158,
+          2.580000002980232,
+          0.5197487919915135
+        ]
+      },
+      "nodes": [
+        "storefront",
+        "facade",
+        "facade-corrugation",
+        "facade-face",
+        "door",
+        "door-corrugation",
+        "door-face",
+        "window",
+        "window-corrugation",
+        "window-face",
+        "window-crossbar",
+        "window-mullion",
+        "sign",
+        "awning-0",
+        "awning-1",
+        "awning-2",
+        "awning-3",
+        "awning-4",
+        "awning-5",
+        "awning-6",
+        "awning-7",
+        "awning-8"
+      ]
+    },
+    {
+      "id": "airplane",
+      "url": "/assets/models/airplane.glb",
+      "bytes": 14172,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -1.9353262186050415,
+          -0.11596045494079588,
+          -0.02500000037252903
+        ],
+        "max": [
+          1.6853060722351074,
+          1.224999988079071,
+          0.25499999672174456
+        ]
+      },
+      "nodes": [
+        "airplane",
+        "body",
+        "wing",
+        "window-0",
+        "window-1",
+        "window-2",
+        "window-3",
+        "window-4",
+        "window-5",
+        "window-6",
+        "window-7",
+        "window-8"
+      ]
+    },
+    {
+      "id": "cloud",
+      "url": "/assets/models/cloud.glb",
+      "bytes": 8036,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -1.54296875,
+          0,
+          0
+        ],
+        "max": [
+          1.6826099157333374,
+          1.2962499856948853,
+          0.09000000357627869
+        ]
+      },
+      "nodes": [
+        "cloud",
+        "paper-cloud"
+      ]
+    },
+    {
+      "id": "terminal",
+      "url": "/assets/models/terminal.glb",
+      "bytes": 18320,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -0.699999988079071,
+          4.768371586472142e-8,
+          -0.054999999701976776
+        ],
+        "max": [
+          0.699999988079071,
+          2.099999952316284,
+          0.3649999988079071
+        ]
+      },
+      "nodes": [
+        "payment-terminal",
+        "body",
+        "body-corrugation",
+        "body-face",
+        "screen",
+        "screen-corrugation",
+        "screen-face",
+        "key-0",
+        "key-1",
+        "key-2",
+        "key-3",
+        "key-4",
+        "key-5",
+        "key-6",
+        "key-7",
+        "key-8",
+        "contactless"
+      ]
+    },
+    {
+      "id": "book",
+      "url": "/assets/models/book.glb",
+      "bytes": 3948,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -1.7173735810641833,
+          -0.054999999701976776,
+          -1.0735222855743454
+        ],
+        "max": [
+          1.7173735810641833,
+          0.2430000002682209,
+          0.7870749680930268
+        ]
+      },
+      "nodes": [
+        "popup-book",
+        "cover-left-hinge",
+        "cover-left",
+        "page-left-0",
+        "page-left-1",
+        "page-left-2",
+        "page-left-3",
+        "page-left-4",
+        "cover-right-hinge",
+        "cover-right",
+        "page-right-0",
+        "page-right-1",
+        "page-right-2",
+        "page-right-3",
+        "page-right-4"
+      ]
+    },
+    {
+      "id": "academy",
+      "url": "/assets/models/academy.glb",
+      "bytes": 16344,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -1.6141771078109741,
+          -0.06499999761581421,
+          -0.13000001192092894
+        ],
+        "max": [
+          1.6141771078109741,
+          2.6287713766098024,
+          0.470000011920929
+        ]
+      },
+      "nodes": [
+        "academy",
+        "facade",
+        "facade-corrugation",
+        "facade-face",
+        "pediment",
+        "clock",
+        "column-0",
+        "window-0",
+        "window-0-corrugation",
+        "window-0-face",
+        "column-1",
+        "window-1",
+        "window-1-corrugation",
+        "window-1-face",
+        "column-2",
+        "window-2",
+        "window-2-corrugation",
+        "window-2-face",
+        "column-3",
+        "window-3",
+        "window-3-corrugation",
+        "window-3-face",
+        "column-4",
+        "steps"
+      ]
+    },
+    {
+      "id": "certificate",
+      "url": "/assets/models/certificate.glb",
+      "bytes": 10892,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -1.2000000476837158,
+          1.1920928910669204e-8,
+          -0.054999999701976776
+        ],
+        "max": [
+          1.2000000476837158,
+          1.649999988079071,
+          0.18999999910593038
+        ]
+      },
+      "nodes": [
+        "certificate",
+        "sheet",
+        "sheet-corrugation",
+        "sheet-face",
+        "text-0",
+        "text-1",
+        "text-2",
+        "text-3",
+        "text-4",
+        "seal"
+      ]
+    },
+    {
+      "id": "shield",
+      "url": "/assets/models/shield.glb",
+      "bytes": 19880,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -1.2073978185653687,
+          0.14464466273784637,
+          -0.02500000037252903
+        ],
+        "max": [
+          1.2073978185653687,
+          2.8760764598846436,
+          0.47999999910593033
+        ]
+      },
+      "nodes": [
+        "shield",
+        "back",
+        "face",
+        "lock",
+        "lock-arch",
+        "keyhole"
+      ]
+    },
+    {
+      "id": "music",
+      "url": "/assets/models/music.glb",
+      "bytes": 61840,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -1.3250000476837158,
+          -4.768371586472142e-8,
+          -0.054999999701976776
+        ],
+        "max": [
+          1.3250000476837158,
+          2.650000047683716,
+          0.37999999910593035
+        ]
+      },
+      "nodes": [
+        "record-player",
+        "sleeve",
+        "sleeve-corrugation",
+        "sleeve-face",
+        "vinyl",
+        "groove-0",
+        "groove-1",
+        "groove-2",
+        "groove-3",
+        "groove-4",
+        "label",
+        "spindle"
+      ]
+    },
+    {
+      "id": "game-card",
+      "url": "/assets/models/game-card.glb",
+      "bytes": 19784,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -0.675000011920929,
+          -2.384185793236071e-8,
+          -0.054999999701976776
+        ],
+        "max": [
+          0.675000011920929,
+          1.950000023841858,
+          0.3549999988079071
+        ]
+      },
+      "nodes": [
+        "game-card",
+        "back",
+        "back-corrugation",
+        "back-face",
+        "inner",
+        "inner-corrugation",
+        "inner-face",
+        "emblem",
+        "corner-a",
+        "corner-b"
+      ]
+    },
+    {
+      "id": "envelope",
+      "url": "/assets/models/envelope.glb",
+      "bytes": 14356,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -1.3736077547073364,
+          -0.028620697557926178,
+          -0.054999999701976776
+        ],
+        "max": [
+          1.3736077547073364,
+          1.6615643501281738,
+          0.2799999991059304
+        ]
+      },
+      "nodes": [
+        "envelope",
+        "body",
+        "body-corrugation",
+        "body-face",
+        "fold-left",
+        "fold-right",
+        "top-flap-hinge",
+        "flap",
+        "wax-seal"
+      ]
+    },
+    {
+      "id": "letter",
+      "url": "/assets/models/letter.glb",
+      "bytes": 3200,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -1.0499999523162842,
+          2.3841857821338408e-8,
+          -0.054999999701976776
+        ],
+        "max": [
+          1.0499999523162842,
+          2.799999976158142,
+          0.08750000018626451
+        ]
+      },
+      "nodes": [
+        "letter",
+        "sheet",
+        "sheet-corrugation",
+        "sheet-face"
+      ]
+    },
+    {
+      "id": "token",
+      "url": "/assets/models/token.glb",
+      "bytes": 14196,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -0.33000001311302185,
+          -1.3113021835042815e-8,
+          -0.05999999865889557
+        ],
+        "max": [
+          0.33000001311302185,
+          0.6600000131130219,
+          0.1849999988079071
+        ]
+      },
+      "nodes": [
+        "token",
+        "coin",
+        "symbol"
+      ]
+    },
+    {
+      "id": "floor",
+      "url": "/assets/models/floor.glb",
+      "bytes": 4340,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -7.895000010728836,
+          -0.03999999910593033,
+          -1.899999976158142
+        ],
+        "max": [
+          7.905000010728838,
+          0.03999999910593033,
+          1.899999976158142
+        ]
+      },
+      "nodes": [
+        "floor",
+        "plank-0",
+        "plank-1",
+        "plank-2",
+        "plank-3",
+        "plank-4",
+        "plank-5",
+        "plank-6",
+        "plank-7",
+        "plank-8",
+        "plank-9",
+        "plank-10",
+        "plank-11",
+        "plank-12",
+        "plank-13",
+        "plank-14",
+        "plank-15",
+        "plank-16",
+        "plank-17",
+        "plank-18",
+        "plank-19"
+      ]
+    },
+    {
+      "id": "footlight",
+      "url": "/assets/models/footlight.glb",
+      "bytes": 5700,
+      "pivot": "base-center",
+      "up": "+Y",
+      "front": "+Z",
+      "bounds": {
+        "min": [
+          -0.11500000208616257,
+          -7.450580569168253e-10,
+          -0.11500000208616257
+        ],
+        "max": [
+          0.11500000208616257,
+          0.2500000035762787,
+          0.11500000208616257
+        ]
+      },
+      "nodes": [
+        "footlight",
+        "base",
+        "bulb"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "id": "proscenium",
+      "url": "/assets/stage/proscenium.webp"
+    },
+    {
+      "id": "curtain-suede",
+      "url": "/assets/stage/curtain-suede.webp"
+    },
+    {
+      "id": "workshop",
+      "url": "/assets/stage/workshop.webp"
+    }
+  ],
+  "sprites": [
+    {
+      "id": "sparkle",
+      "url": "/assets/sprites/sparkle.png",
+      "frames": 12,
+      "frameSize": [
+        128,
+        128
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "fps": 12,
+      "equalEndpoints": true
+    },
+    {
+      "id": "token-hop",
+      "url": "/assets/sprites/token-hop.png",
+      "frames": 12,
+      "frameSize": [
+        128,
+        128
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "fps": 12,
+      "equalEndpoints": true
+    },
+    {
+      "id": "paper-gesture",
+      "url": "/assets/sprites/paper-gesture.png",
+      "frames": 12,
+      "frameSize": [
+        128,
+        128
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "fps": 12,
+      "equalEndpoints": true
+    }
+  ]
+}

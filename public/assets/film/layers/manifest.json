@@ -1,0 +1,751 @@
+{
+  "source": "codigo-em-cena-2min.mp4",
+  "sourceSha256": "58fb35df29dea190c05dd1fcd33398f6c1626d41d24b095da335c017df13aae2",
+  "method": "FFmpeg: decode original frame → RGB24 → exact rectangular crop → lossless PNG",
+  "sourceSize": [
+    1280,
+    720
+  ],
+  "fps": 24,
+  "duration": 120,
+  "animation": "O MP4 continua como animação principal no PixiJS; os PNGs não substituem o movimento.",
+  "limitation": "Os recortes não são máscaras semânticas transparentes. O MP4 não contém os pixels escondidos atrás dos objetos.",
+  "assets": [
+    {
+      "id": "theatre-arch",
+      "role": "architecture",
+      "file": "/assets/film/layers/theatre-arch.png",
+      "timeSeconds": 0,
+      "sourceFrame": 0,
+      "rectangle": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 220
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "theatre-left-wing",
+      "role": "architecture",
+      "file": "/assets/film/layers/theatre-left-wing.png",
+      "timeSeconds": 0,
+      "sourceFrame": 0,
+      "rectangle": {
+        "x": 0,
+        "y": 220,
+        "width": 170,
+        "height": 440
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "theatre-right-wing",
+      "role": "architecture",
+      "file": "/assets/film/layers/theatre-right-wing.png",
+      "timeSeconds": 0,
+      "sourceFrame": 0,
+      "rectangle": {
+        "x": 1110,
+        "y": 220,
+        "width": 170,
+        "height": 440
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "theatre-floor",
+      "role": "foreground",
+      "file": "/assets/film/layers/theatre-floor.png",
+      "timeSeconds": 0,
+      "sourceFrame": 0,
+      "rectangle": {
+        "x": 0,
+        "y": 650,
+        "width": 1280,
+        "height": 70
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "curtain-left",
+      "role": "curtain",
+      "file": "/assets/film/layers/curtain-left.png",
+      "timeSeconds": 0,
+      "sourceFrame": 0,
+      "rectangle": {
+        "x": 170,
+        "y": 180,
+        "width": 470,
+        "height": 470
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "curtain-right",
+      "role": "curtain",
+      "file": "/assets/film/layers/curtain-right.png",
+      "timeSeconds": 0,
+      "sourceFrame": 0,
+      "rectangle": {
+        "x": 640,
+        "y": 180,
+        "width": 470,
+        "height": 470
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "retail-environment",
+      "role": "background",
+      "file": "/assets/film/layers/retail-environment.png",
+      "timeSeconds": 5,
+      "sourceFrame": 120,
+      "rectangle": {
+        "x": 170,
+        "y": 190,
+        "width": 940,
+        "height": 460
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "retail-phone-visible",
+      "role": "prop",
+      "file": "/assets/film/layers/retail-phone-visible.png",
+      "timeSeconds": 5,
+      "sourceFrame": 120,
+      "rectangle": {
+        "x": 552,
+        "y": 217,
+        "width": 174,
+        "height": 355
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "retail-store-left-visible",
+      "role": "prop",
+      "file": "/assets/film/layers/retail-store-left-visible.png",
+      "timeSeconds": 5,
+      "sourceFrame": 120,
+      "rectangle": {
+        "x": 223,
+        "y": 301,
+        "width": 310,
+        "height": 271
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "retail-store-right",
+      "role": "prop",
+      "file": "/assets/film/layers/retail-store-right.png",
+      "timeSeconds": 5,
+      "sourceFrame": 120,
+      "rectangle": {
+        "x": 749,
+        "y": 249,
+        "width": 307,
+        "height": 400
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "bizstore-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/bizstore-caption.png",
+      "timeSeconds": 5,
+      "sourceFrame": 120,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "lebes-environment",
+      "role": "background",
+      "file": "/assets/film/layers/lebes-environment.png",
+      "timeSeconds": 8,
+      "sourceFrame": 192,
+      "rectangle": {
+        "x": 0,
+        "y": 90,
+        "width": 1280,
+        "height": 480
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "lebes-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/lebes-caption.png",
+      "timeSeconds": 8,
+      "sourceFrame": 192,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "workshop-environment",
+      "role": "background",
+      "file": "/assets/film/layers/workshop-environment.png",
+      "timeSeconds": 12,
+      "sourceFrame": 288,
+      "rectangle": {
+        "x": 0,
+        "y": 64,
+        "width": 1280,
+        "height": 506
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "workshop-phone",
+      "role": "prop",
+      "file": "/assets/film/layers/workshop-phone.png",
+      "timeSeconds": 12,
+      "sourceFrame": 288,
+      "rectangle": {
+        "x": 507,
+        "y": 55,
+        "width": 245,
+        "height": 515
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "meifacil-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/meifacil-caption.png",
+      "timeSeconds": 12,
+      "sourceFrame": 288,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "travel-popup",
+      "role": "prop",
+      "file": "/assets/film/layers/travel-popup.png",
+      "timeSeconds": 18,
+      "sourceFrame": 432,
+      "rectangle": {
+        "x": 195,
+        "y": 80,
+        "width": 795,
+        "height": 490
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "travel-plane",
+      "role": "prop",
+      "file": "/assets/film/layers/travel-plane.png",
+      "timeSeconds": 18,
+      "sourceFrame": 432,
+      "rectangle": {
+        "x": 365,
+        "y": 291,
+        "width": 597,
+        "height": 195
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "smiles-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/smiles-caption.png",
+      "timeSeconds": 18,
+      "sourceFrame": 432,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "payments-diorama",
+      "role": "prop",
+      "file": "/assets/film/layers/payments-diorama.png",
+      "timeSeconds": 25,
+      "sourceFrame": 600,
+      "rectangle": {
+        "x": 288,
+        "y": 218,
+        "width": 727,
+        "height": 352
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "aqbank-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/aqbank-caption.png",
+      "timeSeconds": 25,
+      "sourceFrame": 600,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "education-book",
+      "role": "prop",
+      "file": "/assets/film/layers/education-book.png",
+      "timeSeconds": 34,
+      "sourceFrame": 816,
+      "rectangle": {
+        "x": 280,
+        "y": 438,
+        "width": 713,
+        "height": 198
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "education-academy",
+      "role": "prop",
+      "file": "/assets/film/layers/education-academy.png",
+      "timeSeconds": 34,
+      "sourceFrame": 816,
+      "rectangle": {
+        "x": 450,
+        "y": 446,
+        "width": 390,
+        "height": 124
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "fatec-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/fatec-caption.png",
+      "timeSeconds": 34,
+      "sourceFrame": 816,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "rocketseat-interface-panels",
+      "role": "prop",
+      "file": "/assets/film/layers/rocketseat-interface-panels.png",
+      "timeSeconds": 40,
+      "sourceFrame": 960,
+      "rectangle": {
+        "x": 335,
+        "y": 104,
+        "width": 765,
+        "height": 470
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "rocketseat-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/rocketseat-caption.png",
+      "timeSeconds": 40,
+      "sourceFrame": 960,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "certificate-envelope-visible",
+      "role": "prop",
+      "file": "/assets/film/layers/certificate-envelope-visible.png",
+      "timeSeconds": 43,
+      "sourceFrame": 1032,
+      "rectangle": {
+        "x": 330,
+        "y": 221,
+        "width": 610,
+        "height": 349
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "cambly-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/cambly-caption.png",
+      "timeSeconds": 43,
+      "sourceFrame": 1032,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "music-phone-visible",
+      "role": "prop",
+      "file": "/assets/film/layers/music-phone-visible.png",
+      "timeSeconds": 48,
+      "sourceFrame": 1152,
+      "rectangle": {
+        "x": 465,
+        "y": 66,
+        "width": 343,
+        "height": 504
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "music-disc",
+      "role": "prop",
+      "file": "/assets/film/layers/music-disc.png",
+      "timeSeconds": 48,
+      "sourceFrame": 1152,
+      "rectangle": {
+        "x": 531,
+        "y": 232,
+        "width": 220,
+        "height": 265
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "spotify-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/spotify-caption.png",
+      "timeSeconds": 48,
+      "sourceFrame": 1152,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "solo-game-diorama",
+      "role": "prop",
+      "file": "/assets/film/layers/solo-game-diorama.png",
+      "timeSeconds": 54,
+      "sourceFrame": 1296,
+      "rectangle": {
+        "x": 315,
+        "y": 280,
+        "width": 785,
+        "height": 440
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "solo-game-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/solo-game-caption.png",
+      "timeSeconds": 54,
+      "sourceFrame": 1296,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "teddy-interfaces",
+      "role": "prop",
+      "file": "/assets/film/layers/teddy-interfaces.png",
+      "timeSeconds": 66,
+      "sourceFrame": 1584,
+      "rectangle": {
+        "x": 274,
+        "y": 208,
+        "width": 727,
+        "height": 362
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "teddy-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/teddy-caption.png",
+      "timeSeconds": 66,
+      "sourceFrame": 1584,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "antifraud-shield",
+      "role": "prop",
+      "file": "/assets/film/layers/antifraud-shield.png",
+      "timeSeconds": 74,
+      "sourceFrame": 1776,
+      "rectangle": {
+        "x": 491,
+        "y": 309,
+        "width": 275,
+        "height": 261
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "antifraud-scenery",
+      "role": "background",
+      "file": "/assets/film/layers/antifraud-scenery.png",
+      "timeSeconds": 74,
+      "sourceFrame": 1776,
+      "rectangle": {
+        "x": 244,
+        "y": 262,
+        "width": 796,
+        "height": 308
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "tribanco-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/tribanco-caption.png",
+      "timeSeconds": 74,
+      "sourceFrame": 1776,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "jungle-card-stage",
+      "role": "prop",
+      "file": "/assets/film/layers/jungle-card-stage.png",
+      "timeSeconds": 82,
+      "sourceFrame": 1968,
+      "rectangle": {
+        "x": 275,
+        "y": 198,
+        "width": 750,
+        "height": 433
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "jungle-caption",
+      "role": "caption",
+      "file": "/assets/film/layers/jungle-caption.png",
+      "timeSeconds": 82,
+      "sourceFrame": 1968,
+      "rectangle": {
+        "x": 164,
+        "y": 570,
+        "width": 660,
+        "height": 110
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "testimonial-backdrop",
+      "role": "background",
+      "file": "/assets/film/layers/testimonial-backdrop.png",
+      "timeSeconds": 92,
+      "sourceFrame": 2208,
+      "rectangle": {
+        "x": 385,
+        "y": 165,
+        "width": 450,
+        "height": 385
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "tarcisio-letter-commitment",
+      "role": "letter",
+      "file": "/assets/film/layers/tarcisio-letter-commitment.png",
+      "timeSeconds": 97,
+      "sourceFrame": 2328,
+      "rectangle": {
+        "x": 197,
+        "y": 215,
+        "width": 886,
+        "height": 367
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "tarcisio-letter-leadership",
+      "role": "letter",
+      "file": "/assets/film/layers/tarcisio-letter-leadership.png",
+      "timeSeconds": 104,
+      "sourceFrame": 2496,
+      "rectangle": {
+        "x": 197,
+        "y": 215,
+        "width": 886,
+        "height": 367
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "tarcisio-letter-recommendation",
+      "role": "letter",
+      "file": "/assets/film/layers/tarcisio-letter-recommendation.png",
+      "timeSeconds": 112,
+      "sourceFrame": 2688,
+      "rectangle": {
+        "x": 197,
+        "y": 215,
+        "width": 886,
+        "height": 367
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "closing-curtain-left",
+      "role": "curtain",
+      "file": "/assets/film/layers/closing-curtain-left.png",
+      "timeSeconds": 119,
+      "sourceFrame": 2856,
+      "rectangle": {
+        "x": 170,
+        "y": 180,
+        "width": 470,
+        "height": 470
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    },
+    {
+      "id": "closing-curtain-right",
+      "role": "curtain",
+      "file": "/assets/film/layers/closing-curtain-right.png",
+      "timeSeconds": 119,
+      "sourceFrame": 2856,
+      "rectangle": {
+        "x": 640,
+        "y": 180,
+        "width": 470,
+        "height": 470
+      },
+      "sourcePixels": true,
+      "alpha": false,
+      "note": "Recorte retangular do vídeo original. Preserva os pixels e o contexto visível; partes ocultas não foram inventadas."
+    }
+  ]
+}

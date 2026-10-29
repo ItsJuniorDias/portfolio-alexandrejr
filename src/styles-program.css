@@ -1,0 +1,245 @@
+.program {
+  width: min(1120px, calc(100vw - 64px));
+  max-width: none;
+  height: min(90dvh, 1000px);
+  max-height: 90dvh;
+  padding: 0;
+  border: 1px solid #a98b55;
+  background: #f1e6cd;
+  color: #293c3a;
+  box-shadow: 0 35px 100px #120c0c99;
+}
+.program::backdrop {
+  background: #111d1bd4;
+  backdrop-filter: blur(7px);
+}
+.program-shell {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.program-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 27px 42px 23px;
+  border-bottom: 1px solid #a58d5d52;
+}
+.program-header .eyebrow {
+  font-size: 14px;
+  color: #8c6b43;
+}
+.program-header h2 {
+  font:
+    500 38px / 1.1 "Cormorant Garamond",
+    Georgia,
+    serif;
+  margin-top: 6px;
+}
+.close-button {
+  width: 42px;
+  height: 42px;
+  font:
+    30px "Cormorant Garamond",
+    Georgia,
+    serif;
+  border: 1px solid #a58d5d52;
+}
+.close-button:hover {
+  background: #dfcfac;
+}
+.program-body {
+  display: grid;
+  grid-template-columns: 205px minmax(0, 1fr);
+  min-height: 0;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+.program-index {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 35px 30px 30px 42px;
+}
+.program-index > a {
+  font-size: 14px;
+  text-decoration: none;
+}
+.program-index .eyebrow {
+  font-size: 14px;
+  color: #8c6b43;
+}
+.program-index > a:hover {
+  color: #7e2836;
+}
+.program-index .download-link {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #7e2836;
+}
+.program-content {
+  padding: 35px 50px 70px 35px;
+  border-left: 1px solid #a58d5d30;
+}
+.program-content section {
+  scroll-margin-top: 28px;
+  margin-bottom: 60px;
+}
+.program-content .eyebrow {
+  font-size: 14px;
+  color: #8c6b43;
+}
+.program-content h3 {
+  font:
+    500 40px / 1.1 "Cormorant Garamond",
+    Georgia,
+    serif;
+  margin: 12px 0 22px;
+  letter-spacing: -0.5px;
+}
+.program-content p {
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+.program-content h4 {
+  font:
+    600 28px / 1.1 "Cormorant Garamond",
+    Georgia,
+    serif;
+  margin: 8px 0 12px;
+}
+.program-content h4 > span {
+  font-weight: 400;
+  color: #856b47;
+}
+.program-content li {
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 8px;
+}
+.program-content ul {
+  padding-left: 17px;
+}
+.program-content .entry-date {
+  font-size: 14px;
+  color: #7e2836;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+.program-content .entry-role {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.program-content .entry-meta {
+  font-size: 14px;
+  color: #7d715c;
+}
+.program-content .tags {
+  margin: 20px 0;
+}
+.program-content .tags span {
+  font-size: 14px;
+}
+.program-content .inline-link {
+  margin-top: 9px;
+}
+.program-content small {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #7d715c;
+}
+.experience-entry,
+.education-entry,
+.project-entry {
+  padding: 24px 0 28px;
+  border-top: 1px solid #a58d5d35;
+  scroll-margin-top: 20px;
+}
+.text-links {
+  display: flex;
+  gap: 23px;
+  font-size: 14px;
+  margin-top: 23px;
+}
+.text-links a {
+  text-decoration: none;
+}
+.program-content blockquote {
+  border-left: 2px solid #b79458;
+  padding-left: 23px;
+  margin: 25px 0;
+}
+.program-content blockquote p {
+  font:
+    500 23px / 1.5 "Cormorant Garamond",
+    Georgia,
+    serif;
+}
+
+@media (max-width: 700px) {
+  .program {
+    width: calc(100vw - 24px);
+    height: 94dvh;
+    max-height: 94dvh;
+  }
+  .program-header {
+    padding: 20px 23px;
+  }
+  .program-header h2 {
+    font-size: 30px;
+  }
+  .program-header .eyebrow {
+    font-size: 14px;
+  }
+  .close-button {
+    width: 35px;
+    height: 35px;
+  }
+  .program-body {
+    display: block;
+  }
+  .program-index {
+    position: static;
+    padding: 20px 23px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 13px 22px;
+    border-bottom: 1px solid #a58d5d30;
+  }
+  .program-index > .eyebrow {
+    display: none;
+  }
+  .program-index > a {
+    font-size: 14px;
+  }
+  .program-index .download-link {
+    margin: 0;
+    font-size: 14px;
+  }
+  .program-content {
+    padding: 26px 23px 30px;
+    border: 0;
+  }
+  .program-content h3 {
+    font-size: 32px;
+  }
+  .program-content p {
+    font-size: 14px;
+  }
+  .program-content h4 {
+    font-size: 25px;
+  }
+  .program-content blockquote {
+    padding-left: 15px;
+  }
+  .program-content blockquote p {
+    font-size: 21px;
+  }
+}
