@@ -151,3 +151,8 @@ vite.config.ts.timestamp-*
 # Project
 work/
 .DS_Store
+
+# Videos stay local except the one the site plays: Vercel downloads every
+# Git LFS file in the checkout on each build.
+*.mp4
+!/public/assets/film/codigo-em-cena-no-text.mp4
