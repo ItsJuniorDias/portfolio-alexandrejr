@@ -4,6 +4,7 @@ import { FILM } from "./lib/film-camera";
 import { filmPresentation } from "./lib/film-presentation";
 import { filmNavigation } from "./lib/film-navigation";
 import { useReducedMotion, useScrollDirector } from "./lib/use-scroll";
+import { useSoundtrack } from "./lib/use-soundtrack";
 import Program from "./components/Program";
 import FilmCards from "./components/FilmCards";
 import StageTitle from "./components/StageTitle";
@@ -22,8 +23,12 @@ export default function App() {
   const [attempt, setAttempt] = useState(0);
   const [section, setSection] = useState<string | null>(null);
   const [cameraEnabled, setCameraEnabled] = useState(true);
-  const [sound, setSound] = useState(false);
-  const audio = useRef<HTMLAudioElement>(null);
+  const {
+    audio,
+    toggleButton: soundButton,
+    playing: soundOn,
+    toggle: toggleSound,
+  } = useSoundtrack();
   const toolbar = useRef<HTMLDivElement>(null);
   const destination = useSyncExternalStore(
     filmPresentation.subscribeNavigation,
@@ -42,20 +47,6 @@ export default function App() {
     setFailed(false);
     setInteractionRequired(false);
     setAttempt((value) => value + 1);
-  }
-
-  async function toggleSound() {
-    if (!audio.current) return;
-    if (sound) {
-      audio.current.pause();
-      return;
-    }
-    audio.current.volume = 0.25;
-    try {
-      await audio.current.play();
-    } catch {
-      setSound(false);
-    }
   }
 
   return (
@@ -173,8 +164,13 @@ export default function App() {
               >
                 {cameraEnabled ? "Câmera cinematográfica" : "Câmera fixa"}
               </button>
-              <button className="film-sound" onClick={toggleSound} aria-pressed={sound}>
-                {sound ? "Som ligado" : "Ativar som"}
+              <button
+                ref={soundButton}
+                className="film-sound"
+                onClick={toggleSound}
+                aria-pressed={soundOn}
+              >
+                {soundOn ? "Som ligado" : "Ativar som"}
               </button>
             </div>
           </div>
@@ -194,14 +190,7 @@ export default function App() {
         />
       </main>
       <Program section={section} onClose={() => setSection(null)} />
-      <audio
-        ref={audio}
-        src="/assets/audio/trilha.mp3"
-        preload="none"
-        loop
-        onPlay={() => setSound(true)}
-        onPause={() => setSound(false)}
-      />
+      <audio ref={audio} src="/assets/audio/trilha.mp3" preload="none" loop />
     </>
   );
 }
