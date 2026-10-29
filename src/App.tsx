@@ -176,7 +176,12 @@ export default function App() {
           </div>
           {index === 0 && ready && (
             <button className="film-scroll-hint" onClick={() => scrollToCue("bizstore", reduced)}>
-              Role para abrir as cortinas <span>↓</span>
+              {/* A click or tap is the gesture browsers require before the soundtrack can play. */}
+              <span>
+                <span className="pointer-coarse:hidden">Clique</span>
+                <span className="hidden pointer-coarse:inline">Toque</span> para abrir as cortinas
+              </span>
+              <span aria-hidden="true">♪</span>
             </button>
           )}
           <div className="scroll-progress">

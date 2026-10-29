@@ -1,20 +1,28 @@
 import { test, expect } from "@playwright/test";
-import { openFilm } from "./support";
+import { counter, openFilm, sceneLabel } from "./support";
+
+test("opening hint invites a click, or a tap on touch screens", async ({ page, isMobile }) => {
+  await openFilm(page);
+  await expect(page.locator(".film-scroll-hint")).toHaveAccessibleName(
+    `${isMobile ? "Toque" : "Clique"} para abrir as cortinas`,
+  );
+});
 
 test("soundtrack is on by default and remembers when it's turned off", async ({ page }) => {
   await openFilm(page);
   const toggle = page.locator(".film-sound");
-  // Browsers hold audible playback until the visitor's first gesture.
-  await page.locator(".film-viewport").click({ position: { x: 12, y: 12 } });
+  // Browsers hold audible playback until a gesture; the opening hint is that gesture.
+  await page.locator(".film-scroll-hint").click();
   await expect(toggle).toHaveText("Som ligado");
   await expect(toggle).toHaveAttribute("aria-pressed", "true");
+  await expect(counter(page)).toHaveText(sceneLabel(2));
 
   await toggle.click();
   await expect(toggle).toHaveText("Ativar som");
 
-  await page.reload();
-  await expect(page.locator(".film-viewport")).toHaveClass(/film-ready/, { timeout: 60_000 });
-  await page.locator(".film-viewport").click({ position: { x: 12, y: 12 } });
+  // A fresh visit starts at the top; a reload would restore the scrolled scene instead.
+  await openFilm(page);
+  await page.locator(".film-scroll-hint").click();
   await expect(toggle).toHaveText("Ativar som");
   await expect(toggle).toHaveAttribute("aria-pressed", "false");
 });
