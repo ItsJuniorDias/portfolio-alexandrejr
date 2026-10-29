@@ -1,4 +1,5 @@
 import chapters from "../data/film-chapters.json";
+import { filmNavigation } from "./film-navigation";
 
 export type SceneKind =
   | "intro"
@@ -94,9 +95,5 @@ export function scrollToCue(id: string, reducedMotion = false) {
   const cue = cues.find((item) => item.id === (aliases[id] ?? id));
   if (!cue) return;
   const progress = cue.id === "prologo" ? 0 : cue.start + (cue.end - cue.start) * 0.35;
-  window.dispatchEvent(
-    new CustomEvent("film:navigate", {
-      detail: { progress, reducedMotion, label: cue.label },
-    }),
-  );
+  filmNavigation.navigate({ progress, reducedMotion, label: cue.label });
 }

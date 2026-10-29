@@ -2,10 +2,12 @@ import { lazy, Suspense, useCallback, useRef, useState, useSyncExternalStore } f
 import { cues, actNames, scrollToCue } from "./lib/timeline";
 import { FILM } from "./lib/film-camera";
 import { filmPresentation } from "./lib/film-presentation";
+import { filmNavigation } from "./lib/film-navigation";
 import { useReducedMotion, useScrollDirector } from "./lib/use-scroll";
 import Program from "./components/Program";
 import FilmCards from "./components/FilmCards";
 import StageTitle from "./components/StageTitle";
+import FilmBoundary from "./components/FilmBoundary";
 import "./film.css";
 
 const FilmStage = lazy(() => import("./pixi/FilmStage"));
@@ -16,10 +18,13 @@ export default function App() {
   const cue = cues[index];
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [interactionRequired, setInteractionRequired] = useState(false);
+  const [attempt, setAttempt] = useState(0);
   const [section, setSection] = useState<string | null>(null);
   const [cameraEnabled, setCameraEnabled] = useState(true);
   const [sound, setSound] = useState(false);
   const audio = useRef<HTMLAudioElement>(null);
+  const toolbar = useRef<HTMLDivElement>(null);
   const destination = useSyncExternalStore(
     filmPresentation.subscribeNavigation,
     filmPresentation.getDestination,
@@ -31,6 +36,13 @@ export default function App() {
   }, []);
   const handleFailure = useCallback(() => setFailed(true), []);
   const openChapter = useCallback((id: string) => setSection(id), []);
+
+  function retryFilm() {
+    setReady(false);
+    setFailed(false);
+    setInteractionRequired(false);
+    setAttempt((value) => value + 1);
+  }
 
   async function toggleSound() {
     if (!audio.current) return;
@@ -52,13 +64,10 @@ export default function App() {
         Ler currículo sem animação
       </a>
       <header className="film-header">
-        <button
-          className="brand"
-          onClick={() => scrollToCue("prologo", reduced)}
-          aria-label="Voltar ao início"
-        >
+        <button className="brand" onClick={() => scrollToCue("prologo", reduced)}>
           <span>Alexandre Junior</span>
           <small>Desenvolvedor</small>
+          <span className="sr-only">, voltar ao início</span>
         </button>
         <nav aria-label="Navegação principal">
           <button onClick={() => scrollToCue("bizstore", reduced)}>Trajetória</button>
@@ -75,51 +84,65 @@ export default function App() {
         </button>
       </header>
       <main>
+        <h1 className="sr-only">Alexandre Junior — portfólio Código em Cena</h1>
         <div className={`film-viewport ${ready ? "film-ready" : ""}`} data-scene={cue.id}>
           <div className="film-poster" aria-hidden="true" />
           <div className="mobile-film-caption">
             <span className="eyebrow">
               Ato {String(cue.act).padStart(2, "0")} · {actNames[cue.act]}
             </span>
-            <h1>{cue.title}</h1>
+            <h2>{cue.title}</h2>
             <p>{cue.subtitle}</p>
             <button className="inline-link" onClick={() => setSection(cue.section)}>
               {cue.kind === "letter" ? "Ler a indicação completa" : "Ler este capítulo"} ↗
             </button>
           </div>
-          <Suspense fallback={null}>
-            <FilmStage
-              zoom={1}
-              cameraEnabled={cameraEnabled}
-              reduced={reduced}
-              onReady={handleReady}
-              onFailure={handleFailure}
-            />
-          </Suspense>
-          <FilmCards reduced={reduced} onOpen={openChapter} />
+          <FilmBoundary key={attempt} onFailure={handleFailure}>
+            <Suspense fallback={null}>
+              <FilmStage
+                key={attempt}
+                zoom={1}
+                cameraEnabled={cameraEnabled}
+                reduced={reduced}
+                onReady={handleReady}
+                onFailure={handleFailure}
+                onInteractionRequired={setInteractionRequired}
+              />
+            </Suspense>
+          </FilmBoundary>
+          <FilmCards reduced={reduced} onOpen={openChapter} toolbar={toolbar} />
           <StageTitle />
           {destination && (
-            <button
-              className="film-travel-status"
-              onClick={() => window.dispatchEvent(new Event("film:stop"))}
-              aria-label={`Parar percurso para ${destination}`}
-            >
-              {destination} · 1,5× <span>Parar ×</span>
+            <button className="film-travel-status" onClick={() => filmNavigation.stop()}>
+              {destination} · 1,5×{" "}
+              <span>
+                Parar <span aria-hidden="true">×</span>
+              </span>
             </button>
           )}
-          {!ready && !failed && (
-            <div className="film-loading" role="status">
-              Preparando o filme…
-            </div>
-          )}
+          {!ready &&
+            !failed &&
+            (interactionRequired ? (
+              <button
+                className="film-loading film-start"
+                onClick={() => window.dispatchEvent(new Event("film:activate"))}
+              >
+                Toque para iniciar o filme <span aria-hidden="true">▶</span>
+              </button>
+            ) : (
+              <div className="film-loading" role="status">
+                Preparando o filme…
+              </div>
+            ))}
           {failed && (
             <div className="film-error">
               <p>Não foi possível carregar a cena.</p>
+              <button onClick={retryFilm}>Tentar novamente</button>
               <a href="/assets/film/codigo-em-cena-no-text.mp4">Abrir o vídeo</a>
               <button onClick={() => setSection("sobre")}>Ler o currículo</button>
             </div>
           )}
-          <div className="film-toolbar">
+          <div className="film-toolbar" ref={toolbar}>
             <button className="chapter-button" onClick={() => setSection(cue.section)}>
               {cue.kind === "letter" ? "Ler a indicação" : "Abrir capítulo"} ↗
             </button>

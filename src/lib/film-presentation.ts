@@ -30,13 +30,16 @@ const quoteByTime = [
   { from: 94, key: "quote-0" },
 ];
 let key = "";
+let chapterIndex = 0;
 let destination: string | null = null;
 const layoutListeners = new Set<() => void>();
 const cardListeners = new Set<() => void>();
+const chapterListeners = new Set<() => void>();
 const navigationListeners = new Set<() => void>();
 export const filmPresentation = {
   getFrame: () => frame,
   getKey: () => key,
+  getChapterIndex: () => chapterIndex,
   getDestination: () => destination,
   setDestination(value: string | null) {
     if (destination === value) return;
@@ -63,13 +66,25 @@ export const filmPresentation = {
       cardListeners.delete(listener);
     };
   },
+  // Chapters without a card share the empty card key, so the chapter has its own channel.
+  subscribeChapter(listener: () => void) {
+    chapterListeners.add(listener);
+    return () => {
+      chapterListeners.delete(listener);
+    };
+  },
   publish(value: FilmPresentation) {
     frame = value;
+    const index = chapters.findIndex(
+      (chapter) => value.time >= chapter.start && value.time < chapter.end,
+    );
     const next =
-      quoteByTime.find(({ from }) => value.time >= from)?.key ??
-      chapters.find((chapter) => value.time >= chapter.start && value.time < chapter.end)?.id ??
-      "";
+      quoteByTime.find(({ from }) => value.time >= from)?.key ?? chapters[index]?.id ?? "";
     const visibleKey = next === "prologo" || next === "epilogo" ? "" : next;
+    if (index >= 0 && index !== chapterIndex) {
+      chapterIndex = index;
+      chapterListeners.forEach((listener) => listener());
+    }
     if (visibleKey !== key) {
       key = visibleKey;
       cardListeners.forEach((listener) => listener());

@@ -1,14 +1,51 @@
-import { useEffect, useSyncExternalStore } from "react";
+import { useEffect, useRef, useSyncExternalStore, type RefObject } from "react";
 import { AnimatePresence, motion, useMotionValue, type MotionStyle } from "framer-motion";
-import { cardForKey, filmPresentation } from "../lib/film-presentation";
+import { cardForKey, filmPresentation, type FilmPresentation } from "../lib/film-presentation";
 import { FILM } from "../lib/film-camera";
+import { clamp } from "../lib/timeline";
+import { recommendation } from "../data/portfolio";
+
+// Where each card sits in the film's own pixels, over the plates removed from the video.
+const slots = {
+  chapter: { x: 164, y: 570, width: 660 },
+  letter: { x: 197, y: 215, width: 886 },
+};
+const TOOLBAR_GAP = 12;
+
+type Slot = (typeof slots)[keyof typeof slots];
+type LayoutMode = "mobile" | "landscape" | "stage";
+type Layout = { left: number; top: number; width: number; fontScale: number };
+
+const layouts: Record<LayoutMode, (frame: FilmPresentation, slot: Slot) => Layout> = {
+  mobile: (frame) => ({ left: 16, top: frame.height - 140, width: frame.width - 32, fontScale: 1 }),
+  landscape: (frame) => ({ left: frame.width - 320, top: 16, width: 300, fontScale: 1 }),
+  stage: (frame, slot) => ({
+    left: frame.x + slot.x * frame.scale,
+    top: frame.y + (slot.y - FILM.cropTop) * frame.scale,
+    width: slot.width * frame.scale,
+    fontScale: clamp(frame.scale, 1, 1.65),
+  }),
+};
+
+function layoutMode(frame: FilmPresentation): LayoutMode {
+  if (frame.width <= 700) return "mobile";
+  if (frame.width < 950 && frame.height < 500) return "landscape";
+  return "stage";
+}
+
+const recommender = {
+  role: recommendation.headlineVisible.split(" | ")[0],
+  date: recommendation.date.split("-").reverse().join("."),
+};
 
 export default function FilmCards({
   reduced,
   onOpen,
+  toolbar,
 }: {
   reduced: boolean;
   onOpen: (section: string) => void;
+  toolbar: RefObject<HTMLElement | null>;
 }) {
   const key = useSyncExternalStore(
     filmPresentation.subscribeCard,
@@ -16,6 +53,7 @@ export default function FilmCards({
     () => "",
   );
   const card = cardForKey(key);
+  const anchor = useRef<HTMLDivElement>(null);
   const left = useMotionValue(0);
   const top = useMotionValue(0);
   const width = useMotionValue(660);
@@ -25,28 +63,31 @@ export default function FilmCards({
   useEffect(() => {
     function update() {
       const frame = filmPresentation.getFrame();
-      const mobile = frame.width <= 700;
-      const landscape = frame.width >= 700 && frame.width < 950 && frame.height < 500;
-      const sourceX = quote ? 197 : 164;
-      const sourceY = quote ? 215 : 570;
-      const sourceWidth = quote ? 886 : 660;
-      left.set(mobile ? 16 : landscape ? frame.width - 320 : frame.x + sourceX * frame.scale);
-      top.set(
-        mobile
-          ? frame.height - 140
-          : landscape
-            ? 16
-            : frame.y + (sourceY - FILM.cropTop) * frame.scale,
-      );
-      width.set(mobile ? frame.width - 32 : landscape ? 300 : sourceWidth * frame.scale);
-      fontScale.set(mobile || landscape ? 1 : Math.max(1, Math.min(frame.scale, 1.65)));
+      const mode = layoutMode(frame);
+      const layout = layouts[mode](frame, quote ? slots.letter : slots.chapter);
+      // On the stage the card follows the film but never slides under the toolbar.
+      const floor =
+        (toolbar.current?.offsetTop ?? frame.height) -
+        TOOLBAR_GAP -
+        (anchor.current?.offsetHeight ?? 0);
+      left.set(layout.left);
+      top.set(mode === "stage" ? Math.max(TOOLBAR_GAP, Math.min(layout.top, floor)) : layout.top);
+      width.set(layout.width);
+      fontScale.set(layout.fontScale);
     }
     update();
-    return filmPresentation.subscribeLayout(update);
-  }, [left, top, width, fontScale, quote]);
+    const resize = new ResizeObserver(update);
+    if (anchor.current) resize.observe(anchor.current);
+    const unsubscribe = filmPresentation.subscribeLayout(update);
+    return () => {
+      unsubscribe();
+      resize.disconnect();
+    };
+  }, [left, top, width, fontScale, quote, toolbar]);
 
   return (
     <motion.div
+      ref={anchor}
       className={`coded-card-anchor ${quote ? "is-letter" : ""}`}
       style={{ left, top, width, "--card-scale": fontScale } as MotionStyle}
     >
@@ -71,11 +112,13 @@ export default function FilmCards({
                 <blockquote>{card.description}</blockquote>
                 <div className="coded-letter-footer">
                   <div>
-                    <strong>Tarcisio Bezerra</strong>
-                    <p>Engenheiro de Software Sênior · 14.10.2025</p>
-                    <p>Trabalhou com Alexandre na mesma equipe</p>
+                    <strong>{recommendation.author}</strong>
+                    <p>
+                      {recommender.role} · {recommender.date}
+                    </p>
+                    <p>{recommendation.relationship}</p>
                   </div>
-                  <button onClick={() => onOpen("tarcisio")}>{card.action}</button>
+                  <button onClick={() => onOpen(card.section)}>{card.action}</button>
                 </div>
               </>
             ) : (

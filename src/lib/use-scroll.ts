@@ -1,7 +1,6 @@
 import { useEffect, useSyncExternalStore } from "react";
 import { scrollStore } from "./scroll-store";
 import { filmPresentation } from "./film-presentation";
-import { cueIndexAt } from "./timeline";
 
 const reducedQuery = "(prefers-reduced-motion: reduce)";
 
@@ -21,8 +20,8 @@ export function useReducedMotion() {
 
 export function useScrollDirector() {
   const index = useSyncExternalStore(
-    filmPresentation.subscribeCard,
-    () => cueIndexAt(filmPresentation.getFrame().time / 120),
+    filmPresentation.subscribeChapter,
+    filmPresentation.getChapterIndex,
     () => 0,
   );
 

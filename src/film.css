@@ -73,7 +73,7 @@
 .film-poster {
   position: absolute;
   inset: 0;
-  background: url("/assets/film/stage-poster-no-text.png") center bottom / contain no-repeat;
+  background: url("/assets/film/stage-poster-no-text.webp") center bottom / contain no-repeat;
 }
 .film-ready .film-poster {
   visibility: hidden;
@@ -170,6 +170,19 @@
   flex-direction: column;
   gap: 15px;
 }
+.film-loading,
+.film-error {
+  max-width: calc(100% - 32px);
+  width: max-content;
+}
+.film-start {
+  min-height: 48px;
+  border: 1px solid #b99b63;
+  cursor: pointer;
+}
+.film-start span {
+  margin-left: 8px;
+}
 .mobile-film-caption {
   display: none;
 }
@@ -221,7 +234,7 @@
     letter-spacing: 1.6px;
     color: #887044;
   }
-  .mobile-film-caption h1 {
+  .mobile-film-caption h2 {
     margin-top: 15px;
     font:
       500 39px / 1.04 "Cormorant Garamond",
@@ -290,7 +303,7 @@
   .mobile-film-caption {
     top: 4%;
   }
-  .mobile-film-caption h1 {
+  .mobile-film-caption h2 {
     font-size: 29px;
     margin-top: 9px;
   }

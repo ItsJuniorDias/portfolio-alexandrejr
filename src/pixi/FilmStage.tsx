@@ -3,6 +3,18 @@ import { Application, Container, Rectangle, Sprite, Texture, VideoSource } from 
 import { scrollStore } from "../lib/scroll-store";
 import { cameraTransform, FILM, frameTime, immersionAt, smoothFilmTime } from "../lib/film-camera";
 import { filmPresentation } from "../lib/film-presentation";
+import { prepareFilmVideo } from "../lib/film-loader";
+import { filmNavigation, type NavigationRequest } from "../lib/film-navigation";
+
+// The film is 720p at heart; beyond 2× the canvas only costs fill rate.
+const RESOLUTION = Math.min(window.devicePixelRatio || 1, 2);
+
+// Drawing runs every frame, so DOM writes are skipped when nothing changed.
+function syncDataset(element: HTMLElement, values: Record<string, string>) {
+  for (const [name, value] of Object.entries(values)) {
+    if (element.dataset[name] !== value) element.dataset[name] = value;
+  }
+}
 
 export default function FilmStage({
   zoom,
@@ -10,12 +22,14 @@ export default function FilmStage({
   reduced,
   onReady,
   onFailure,
+  onInteractionRequired,
 }: {
   zoom: number;
   cameraEnabled: boolean;
   reduced: boolean;
   onReady: () => void;
   onFailure: () => void;
+  onInteractionRequired: (required: boolean) => void;
 }) {
   const host = useRef<HTMLDivElement>(null);
   const controls = useRef({ zoom: 1, automatic: true, reduced: false });
@@ -40,6 +54,10 @@ export default function FilmStage({
     let previousTimestamp = 0;
     let presented = false;
     let presentationFrame = 0;
+    const abort = new AbortController();
+    let activate = () => {};
+    let immersionStyle = "";
+    let detachNavigation = () => {};
     const app = new Application();
     const camera = new Container({ label: "cinematic-camera-2d" });
     const video = document.createElement("video");
@@ -51,11 +69,22 @@ export default function FilmStage({
     video.className = "film-source";
     target.appendChild(video);
 
+    function activateFilm() {
+      activate();
+    }
+
+    window.addEventListener("film:activate", activateFilm);
+    window.addEventListener("pointerdown", activateFilm, { passive: true });
+    window.addEventListener("touchstart", activateFilm, { passive: true });
+
     function draw() {
       if (disposed || !appReady) return;
       const bounds = target!.getBoundingClientRect();
       const immersion = controls.current.reduced ? 0 : immersionAt(visualTime);
-      document.documentElement.style.setProperty("--film-immersion", immersion.toFixed(4));
+      if (immersion.toFixed(4) !== immersionStyle) {
+        immersionStyle = immersion.toFixed(4);
+        document.documentElement.style.setProperty("--film-immersion", immersionStyle);
+      }
       const contentMode = bounds.width <= 700 ? "cover" : "contain";
       const transform = cameraTransform(
         bounds.width,
@@ -78,12 +107,14 @@ export default function FilmStage({
         cameraX: transform.x,
         cameraY: transform.y,
       });
-      target!.dataset.frame = String(Math.round(video.currentTime * FILM.fps));
-      target!.dataset.cameraDepth = transform.scale.toFixed(4);
-      target!.dataset.immersion = immersion.toFixed(4);
-      target!.dataset.contentMode = contentMode;
-      target!.dataset.dpr = "3";
-      target!.dataset.playbackRate = navigationTarget === null ? "1" : "1.5";
+      syncDataset(target!, {
+        frame: String(Math.round(video.currentTime * FILM.fps)),
+        cameraDepth: transform.scale.toFixed(4),
+        immersion: immersionStyle,
+        contentMode,
+        dpr: String(RESOLUTION),
+        playbackRate: navigationTarget === null ? "1" : "1.5",
+      });
     }
     function seek() {
       if (disposed || video.readyState < 2 || video.seeking) return;
@@ -178,11 +209,7 @@ export default function FilmStage({
       scrollStore.update(progress);
     }
 
-    function navigate(event: Event) {
-      const { progress, reducedMotion, label } = (
-        event as CustomEvent<{ progress: number; reducedMotion: boolean; label: string }>
-      ).detail;
-
+    function navigate({ progress, reducedMotion, label }: NavigationRequest) {
       desired = frameTime(progress);
       navigationTarget = desired;
       filmPresentation.setDestination(label);
@@ -231,7 +258,7 @@ export default function FilmStage({
           height: target!.clientHeight,
           backgroundAlpha: 0,
           antialias: true,
-          resolution: 3,
+          resolution: RESOLUTION,
           autoDensity: true,
           autoStart: false,
           sharedTicker: false,
@@ -245,27 +272,32 @@ export default function FilmStage({
         app.canvas.setAttribute("aria-hidden", "true");
         target!.appendChild(app.canvas);
         draw();
+
+        const loader = prepareFilmVideo(video, {
+          signal: abort.signal,
+          onInteractionRequired,
+        });
+
+        activate = loader.activate;
+        await loader.ready;
+        if (disposed) return;
+
+        // The opaque H.264 movie has no alpha channel. Manage decoding ourselves:
+        // VideoSource.load() probes a separate WebM video which can stall on iOS.
         source = new VideoSource({
           resource: video,
+          width: video.videoWidth,
+          height: video.videoHeight,
+          alphaMode: "no-premultiply-alpha",
           autoPlay: false,
           autoLoad: false,
           muted: true,
           playsinline: true,
-          preload: true,
           updateFPS: 24,
           scaleMode: "linear",
         });
         source.autoUpdate = false;
-        await source.load();
-        if (disposed) return;
-        if (video.readyState < 2)
-          await new Promise<void>((resolve, reject) => {
-            video.addEventListener("loadeddata", () => resolve(), { once: true });
-            video.addEventListener("error", () => reject(new Error("Video decode failed")), {
-              once: true,
-            });
-          });
-        if (disposed) return;
+        source.isReady = true;
         const sourceScale = video.videoWidth / FILM.width;
         const planes = [
           { name: "upper-architecture", y: 64, height: 106 },
@@ -306,8 +338,7 @@ export default function FilmStage({
         scrollStore.update(initialProgress);
         seek();
 
-        window.addEventListener("film:navigate", navigate);
-        window.addEventListener("film:stop", cancelNavigation);
+        detachNavigation = filmNavigation.attach({ navigate, stop: cancelNavigation });
         window.addEventListener("wheel", cancelNavigation, { passive: true });
         window.addEventListener("touchstart", cancelNavigation, { passive: true });
         window.addEventListener("pointerdown", cancelNavigation, { passive: true });
@@ -324,9 +355,12 @@ export default function FilmStage({
     void setup();
     return () => {
       disposed = true;
+      abort.abort();
+      window.removeEventListener("film:activate", activateFilm);
+      window.removeEventListener("pointerdown", activateFilm);
+      window.removeEventListener("touchstart", activateFilm);
       unsubscribe();
-      window.removeEventListener("film:navigate", navigate);
-      window.removeEventListener("film:stop", cancelNavigation);
+      detachNavigation();
       window.removeEventListener("wheel", cancelNavigation);
       window.removeEventListener("touchstart", cancelNavigation);
       window.removeEventListener("pointerdown", cancelNavigation);
@@ -347,7 +381,7 @@ export default function FilmStage({
       video.remove();
       if (appReady) app.destroy(true, { children: true, texture: true, textureSource: false });
     };
-  }, [onReady, onFailure]);
+  }, [onReady, onFailure, onInteractionRequired]);
 
   return (
     <div

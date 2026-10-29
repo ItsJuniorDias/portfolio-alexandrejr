@@ -14,7 +14,9 @@
     "assets:build": "node scripts/build-assets.mjs",
     "test": "node --import tsx --test tests/*.test.mjs",
     "assets:extract": "node scripts/extract-film-assets.mjs",
-    "content:build": "node scripts/build-content.mjs"
+    "content:build": "node scripts/build-content.mjs",
+    "test:e2e": "tsc -p e2e && playwright test",
+    "test:e2e:prod": "PLAYWRIGHT_BASE_URL=https://portfolio-alexandrejr.vercel.app playwright test"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.3.0",
@@ -29,9 +31,11 @@
     "zustand": "^5.0.16"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@eslint/js": "^9.39.0",
     "@gltf-transform/core": "^4.5.1",
     "@gltf-transform/functions": "^4.5.1",
+    "@playwright/test": "^1.64.1",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.2",

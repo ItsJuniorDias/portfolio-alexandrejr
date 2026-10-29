@@ -88,7 +88,7 @@
     letter-spacing: 1.5px;
   }
 
-  .mobile-film-caption h1 {
+  .mobile-film-caption h2 {
     @apply mt-2;
     max-width: none;
     font-size: 30px;
