@@ -1,4 +1,6 @@
 .program {
+  border-radius: var(--radius-dialog);
+  overflow: hidden;
   width: min(1120px, calc(100vw - 64px));
   max-width: none;
   height: min(90dvh, 1000px);
@@ -38,6 +40,7 @@
   margin-top: 6px;
 }
 .close-button {
+  border-radius: var(--radius-control);
   width: 42px;
   height: 42px;
   font:

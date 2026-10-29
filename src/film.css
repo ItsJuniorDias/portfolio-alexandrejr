@@ -125,6 +125,7 @@
   margin-left: 3px;
 }
 .film-scroll-hint {
+  border-radius: var(--radius-control);
   position: absolute;
   z-index: 5;
   bottom: 15%;
@@ -156,6 +157,7 @@
 }
 .film-loading,
 .film-error {
+  border-radius: var(--radius-surface);
   position: absolute;
   z-index: 8;
   top: 48%;
@@ -371,6 +373,7 @@
   pointer-events: none;
 }
 .coded-card {
+  border-radius: var(--radius-surface);
   position: relative;
   background: #e9dbbd;
   border: 1px solid #b99b63;
@@ -461,6 +464,7 @@
   margin-top: 3px;
 }
 .coded-letter-footer button {
+  border-radius: var(--radius-control);
   flex-shrink: 0;
   padding: calc(12px * var(--card-scale)) calc(24px * var(--card-scale));
   font-size: 14px;
@@ -547,6 +551,7 @@
 }
 
 .film-travel-status {
+  border-radius: var(--radius-pill);
   position: absolute;
   z-index: 9;
   bottom: 62px;

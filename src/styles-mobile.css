@@ -72,6 +72,7 @@
   }
 
   .film-viewport[data-scene="epilogo"] .mobile-film-caption {
+    border-radius: var(--radius-surface);
     @apply block p-5;
     top: auto;
     bottom: 124px;
@@ -192,6 +193,7 @@
   }
 
   .film-toolbar {
+    border-radius: var(--radius-surface);
     @apply grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-0 px-3;
     bottom: max(8px, env(safe-area-inset-bottom));
     left: 16px;

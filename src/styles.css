@@ -11,6 +11,10 @@
   --ink: #263d3d;
   --wine: #6f2033;
   --gold: #c5a06a;
+  --radius-control: 8px;
+  --radius-surface: 10px;
+  --radius-dialog: 16px;
+  --radius-pill: 999px;
   --header-height: 86px;
   --scroll-progress: 0;
   --intro-opacity: 1;
@@ -52,6 +56,9 @@ button:focus-visible,
 a:focus-visible {
   outline: 2px solid #c5a06a;
   outline-offset: 6px;
+}
+/* Zero specificity, so rounded controls keep their own radius while focused. */
+:where(button, a):where(:focus-visible) {
   border-radius: 2px;
 }
 button,
@@ -363,6 +370,7 @@ em {
   gap: 6px;
 }
 .tags span {
+  border-radius: var(--radius-pill);
   font-size: 14px;
   padding: 5px 8px;
   background: #d5c39850;
